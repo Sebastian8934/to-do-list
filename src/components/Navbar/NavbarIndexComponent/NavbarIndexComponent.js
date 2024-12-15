@@ -32,7 +32,7 @@ function NavbarIndexComponent() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               News
             </Typography>
-            <Button onClick={ ()=> navigate('/home') } color="inherit">Login</Button>
+            <Button onClick={ ()=> navigate('/home') } color="inherit">Iniciar sesion</Button>
           </Toolbar>
         </AppBar>
       </Box>
