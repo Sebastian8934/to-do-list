@@ -16,7 +16,7 @@ function ChangeThemeComponent() {
     <>
         <Box sx={{ padding: 4 }}>
             <Typography variant="h4" gutterBottom>
-            Cambiar entre Temas
+                Cambiar entre Temas
             </Typography>
             
             <Box sx={{ marginBottom: 2 }}>
@@ -52,7 +52,6 @@ function ChangeThemeComponent() {
                     Tema Personalizado 2
                 </Button>
             </Box>
-
         </Box>
     </>
   )

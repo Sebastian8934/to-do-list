@@ -50,7 +50,7 @@ import { createTheme } from '@mui/material';
       background: {
         default: '#f1f8e9',
       },
-    },
+    }
   });
 
 export { lightTheme,darkTheme,customTheme1,customTheme2 }
