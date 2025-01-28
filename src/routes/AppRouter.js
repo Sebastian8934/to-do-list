@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 //Vistas
-import Index from '../pages/Index/Index';
-import Login from '../pages/Login/Login';
-import Home from '../pages/Home/Home';
-import NotFound from '../pages/NotFound/NotFound'; 
+import Index from '../pages/index/Index';
+import Login from '../pages/login/Login';
+import Home from '../pages/home/Home';
+import NotFound from '../pages/notFound/NotFound'; 
 
 function AppRouter() {
   return (

@@ -1,0 +1,16 @@
+{
+    "url":"https://to-do-list-back-onnu.onrender.com/api/v1/",
+    "urlDev":"http://localhost:5001/api/v1/",
+    "urlProd":"https://to-do-list-back-onnu.onrender.com/api/v1/",
+    "urls": {
+        "login":"auth/login/",
+        "user":"users/",
+        "role":"role/",
+        "status":"status/",
+        "brand":"brand/",
+        "statusTask":"statusTask/",
+        "statusItem":"statusItem/",
+        "task":"task/",
+        "item":"item/"
+    }
+}

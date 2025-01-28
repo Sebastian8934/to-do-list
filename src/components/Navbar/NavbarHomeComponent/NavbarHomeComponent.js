@@ -114,15 +114,18 @@ function NavbarHomeComponent({ children }) {
 
   //Maneja que componentes se muestran
   const handleClick = (e) => {
-
     let viewsChange;
-
     if(e.target.innerText === "Lista de tareas"){
-      viewsChange = { listTask:true };
+      viewsChange = { task:true };
+    } else if(e.target.innerText === "Lista de items"){
+      viewsChange = { item:true };
+    } else if(e.target.innerText === "Estatus de tareas"){
+      viewsChange = { statusTask:true };
+    } else if(e.target.innerText === "Estatus de items"){
+      viewsChange = { statusItem:true };
     } else {
       viewsChange = {}
     }
-
     setViews(viewsChange);
   }
 
@@ -206,7 +209,7 @@ function NavbarHomeComponent({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Lista de tareas', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Lista de tareas','Lista de items','Estatus de tareas','Estatus de items','Limpiar'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={handleClick}>
                 <ListItemIcon>

@@ -11,14 +11,11 @@ import { Button } from '@mui/material';
 import { useSelector , useDispatch } from "react-redux";
 
 //Actions
-import { getTaskmAllService } from "../../../store/action/taskAction";
-
-//Context for views
-// import { ViewsContext } from '../../../context/ViewsContext';
+import { getItemAllService } from "../../../store/action/itemAction";
 
 function ListTask() {
 
-  const rows = useSelector((store) => store.task);
+  const rows = useSelector((store) => store.item);
   const dispatch = useDispatch();
 
   const [view, setView] = useState({
@@ -40,18 +37,12 @@ function ListTask() {
       headerName: 'Descripcion',
       width: 150,
       editable: true,
-    },
-    {
-      field: 'statusTask',
-      headerName: 'Estatus',
-      width: 150,
-      editable: true,
     }
   ];
 
   //Aqui hago la consulta a la base de datos y la agrego el payload al redux
   useEffect(() => {
-    dispatch(getTaskmAllService());
+    dispatch(getItemAllService());
   }, [dispatch])
 
   const handleViewCreate = () => {
@@ -60,7 +51,6 @@ function ListTask() {
 
   const handleViewDelete = () => {}
   const handleViewUpdate = () => {}
-
   const showAlert = () => {}
 
   return (

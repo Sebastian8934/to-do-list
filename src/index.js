@@ -2,19 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+//React router dom
 import { BrowserRouter } from 'react-router-dom';
+
+// material ui
 import { ThemeContextProvider } from './context/ThemeContext';
 import { CssBaseline } from '@mui/material';
+
+// Redux
+import { Provider } from 'react-redux';
+import store from './store/Store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store()}>
       <ThemeContextProvider>
         <BrowserRouter>
           <CssBaseline />
           <App />
         </BrowserRouter>
       </ThemeContextProvider>
+    </Provider>
   </React.StrictMode>
 );
 

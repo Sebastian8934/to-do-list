@@ -10,7 +10,7 @@ import { useThemeContext } from '../../context/ThemeContext';
 
 function ChangeThemeComponent() {
 
-    const { toggleTheme } = useThemeContext();
+  const { toggleTheme } = useThemeContext();
 
   return (
     <>

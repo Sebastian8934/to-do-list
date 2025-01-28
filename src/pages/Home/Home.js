@@ -4,7 +4,10 @@ import React,{ useContext } from 'react';
 import NavbarHomeComponent from '../../components/Navbar/NavbarHomeComponent/NavbarHomeComponent';
 
 //Views 
-import ListTask from '../../pages/Task/List/ListTask';
+import StatusTask from '../status-task/list/ListTask';
+import StatusItem from '../status-item/list/ListStatusItem';
+import Task from '../task/list/ListTask';
+import Item from '../item/list/ListTask';
 
 //Context for views
 import { ViewsContext } from '../../context/ViewsContext';
@@ -17,12 +20,17 @@ function Home() {
   return (
     <>
       <NavbarHomeComponent>
-
-        { views.listTask === true ?
-          <ListTask /> :
-         <></>
+        { 
+          views.statusTask === true ?
+            <StatusTask /> :
+          views.statusItem === true ?
+            <StatusItem /> :
+          views.task === true ?
+            <Task /> :
+          views.item === true ?
+            <Item /> :
+            <></>
         }
-
       </NavbarHomeComponent>
     </>
   )

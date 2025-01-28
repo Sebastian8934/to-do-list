@@ -11,47 +11,32 @@ import { Button } from '@mui/material';
 import { useSelector , useDispatch } from "react-redux";
 
 //Actions
-import { getTaskmAllService } from "../../../store/action/taskAction";
-
-//Context for views
-// import { ViewsContext } from '../../../context/ViewsContext';
+import { getStatusTaskAllService } from "../../../store/action/statusTaskAction";
 
 function ListTask() {
 
-  const rows = useSelector((store) => store.task);
-  const dispatch = useDispatch();
-
   const [view, setView] = useState({
-      list:true,
-      create:false,
-      update:false
+    list:true,
+    create:false,
+    update:false
   });
-    
+
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    {
-      field: 'name',
-      headerName: 'Nombre',
-      width: 150,
-      editable: true,
-    },
     {
       field: 'description',
       headerName: 'Descripcion',
       width: 150,
       editable: true,
-    },
-    {
-      field: 'statusTask',
-      headerName: 'Estatus',
-      width: 150,
-      editable: true,
     }
   ];
+  
+  const rows = useSelector((store) => store.statusTask);
+  const dispatch = useDispatch();
 
   //Aqui hago la consulta a la base de datos y la agrego el payload al redux
   useEffect(() => {
-    dispatch(getTaskmAllService());
+    dispatch(getStatusTaskAllService());
   }, [dispatch])
 
   const handleViewCreate = () => {
@@ -60,9 +45,8 @@ function ListTask() {
 
   const handleViewDelete = () => {}
   const handleViewUpdate = () => {}
-
   const showAlert = () => {}
-
+  
   return (
     <>
       { 
