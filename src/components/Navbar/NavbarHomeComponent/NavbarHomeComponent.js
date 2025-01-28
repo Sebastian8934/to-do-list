@@ -123,8 +123,6 @@ function NavbarHomeComponent({ children }) {
       viewsChange = { statusTask:true };
     } else if(e.target.innerText === "Estatus de items"){
       viewsChange = { statusItem:true };
-    } else {
-      viewsChange = {}
     }
     setViews(viewsChange);
   }
@@ -209,7 +207,7 @@ function NavbarHomeComponent({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Lista de tareas','Lista de items','Estatus de tareas','Estatus de items','Limpiar'].map((text, index) => (
+          {['Lista de tareas','Lista de items','Estatus de tareas','Estatus de items'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={handleClick}>
                 <ListItemIcon>
