@@ -19,11 +19,9 @@ import { useSelector,useDispatch } from "react-redux";
 //Actions
 import { getStatusItemAllService,deleteStatusItemService } from "../../../store/action/statusItemAction";
 
-// theme component
-// import ChangeThemeComponent from '../../../components/ChangeTheme/ChangeThemeComponent';
-
 function ListStatusItem() {
 
+  const [infoUpdate, setInfoUpdate] = useState({});
   let rows = useSelector((state) => state.statusItem);
   const dispatch = useDispatch();
 
@@ -53,7 +51,7 @@ function ListStatusItem() {
             color="primary"
             size="small"
             style={{ marginRight: 10 }}
-            // onClick={() => handleEdit(params.row._id)}
+            onClick={() => handleEdit(params.row)}
           >
             Editar
           </Button>
@@ -71,15 +69,15 @@ function ListStatusItem() {
     },
   ];
 
-  //Aqui hace la peticion a la base de datos
-  const handleGet = () => {
-    dispatch(getStatusItemAllService());
-  } 
-
   //Aqui monitoreo las consultas
   useEffect(() => {
     handleGet();
   }, [dispatch,view])
+
+  //Aqui hace la peticion a la base de datos
+  const handleGet = () => {
+    dispatch(getStatusItemAllService());
+  } 
 
   const handleCreate = () => {
     setView({create:true});
@@ -105,8 +103,9 @@ function ListStatusItem() {
       } 
   }
 
-  const handleUpdate = () => {
-
+  const handleEdit = (infoEdit) => {
+    setInfoUpdate(infoEdit);
+    setView({update:true});
   }
 
   const showAlert = (typeMessage,result) => {
@@ -128,14 +127,13 @@ function ListStatusItem() {
       { 
         view.list === true ?
           <>
-            {/* <ChangeThemeComponent /> */}
             <Button variant="contained" onClick={handleCreate}>Crear</Button>
             <Box mt={2}>
               <TableComponent columns={columns} rows={rows} />
             </Box>
           </> : 
         view.create === true ? <Create setView={setView} /> :
-        view.update === true ? <Edit setView={setView} /> :
+        view.update === true ? <Edit setView={setView} infoUpdate={infoUpdate} /> :
         <></>
       }
     </>

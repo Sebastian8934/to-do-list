@@ -58,6 +58,21 @@ export const createStatusItemService = async (body) => {
     }
 };
 
+export const editStatusItemService = async (body) => {
+    try {
+        const res = await axios.put(config.url+config.urls.statusItem+body.id,body);
+        // console.log(res);
+        return res.data;
+    } catch (error) {
+        console.log(error);
+        return {
+            statusCode:error.response.status,
+            message:error.response.statusText, 
+            data:error.response.data
+        }
+    }
+};
+
 export const deleteStatusItemService = async (id) => {
     try {
         const res = await axios.delete(config.url+config.urls.statusItem+id);

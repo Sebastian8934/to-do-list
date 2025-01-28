@@ -55,13 +55,12 @@ function CreateStatusItem({ setView }) {
     }
 
     const create = async () => {
-      //Crea el curpo de la peticion
+      //Crea el cuerpo de la peticion
       const body = {
         description:inputDescription
       };
       //Valida que el input cumpla todo
      let responseValidate = validateForm();
-
      if (responseValidate) {
        //Realiza la peticion y devuelve su respuesta
        let responseData = await createStatusItemService(body);
@@ -84,17 +83,17 @@ function CreateStatusItem({ setView }) {
     }
 
     const showAlert = (typeMessage,result) => {
-        Swal.fire({
-            title: "Resultado",
-            html:`<p class="livness-alert-text font-poppins"> ${typeMessage} </p>
-             ${result}`,
-            confirmButtonText:"Finalizar",
-            customClass:{
-                popup:`livness-modal font-poppins`,
-                confirmButton:"livness-button",
-            },
-            allowOutsideClick:false
-        })
+      Swal.fire({
+          title: "Resultado",
+          html:`<p class="livness-alert-text font-poppins"> ${typeMessage} </p>
+            ${result}`,
+          confirmButtonText:"Finalizar",
+          customClass:{
+              popup:`livness-modal font-poppins`,
+              confirmButton:"livness-button",
+          },
+          allowOutsideClick:false
+      })
     }
 
   return (
@@ -108,11 +107,7 @@ function CreateStatusItem({ setView }) {
             alignItems:'center'
           }}>
             <TextField value={inputDescription} onChange={(e) => setInputDescription(e.target.value)} sx={{margin:"20px 0px 20px 0px"}} label="Descripcion" variant="outlined" />
-
-            <Box>
-              {errorDescription && <p style={{ color: 'red' }}>{errorDescription}</p>}
-            </Box>
-
+            {errorDescription && <p style={{ color: 'red' }}>{errorDescription}</p>}
             <Button onClick={create} variant="contained">Guardar</Button>
           </Box>
       </Container>
