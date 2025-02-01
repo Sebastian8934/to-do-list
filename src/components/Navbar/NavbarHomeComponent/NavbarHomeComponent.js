@@ -112,6 +112,12 @@ function NavbarHomeComponent({ children }) {
     setAnchorEl(null);
   };
 
+  //Enviar al perfil
+  const handleProfile = () => {
+    setAnchorEl(null);
+    setViews({profile:true});    
+  }
+
   //Maneja que componentes se muestran
   const handleClick = (e) => {
     let viewsChange;
@@ -147,9 +153,8 @@ function NavbarHomeComponent({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Persistent drawer
+            Nombre de usuario
           </Typography>
-
            <Box>
               <IconButton
                 size="large"
@@ -180,11 +185,10 @@ function NavbarHomeComponent({ children }) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Configuraciones</MenuItem>
+                <MenuItem onClick={handleProfile}>Perfil</MenuItem>
+                {/* <MenuItem onClick={handleClose}>Configuraciones</MenuItem> */}
               </Menu>
           </Box>
-
         </Toolbar>
       </AppBar>
       <Drawer
