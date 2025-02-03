@@ -10,6 +10,9 @@ import NotFound from '../pages/notFound/NotFound';
 //Components
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 
+// useContext for material ui
+import { ThemeContextProvider } from '../context/ThemeContext';
+
 function AppRouter() {
   return (
     <>
@@ -21,7 +24,9 @@ function AppRouter() {
           path="/home"
           element={
             <PrivateRoute>
-              <Home />
+              <ThemeContextProvider>
+                <Home />
+              </ThemeContextProvider>
             </PrivateRoute>
           }
         />
