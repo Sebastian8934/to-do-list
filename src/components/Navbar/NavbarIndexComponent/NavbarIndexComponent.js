@@ -1,17 +1,16 @@
 import React from 'react'
 
+//Material ui
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 //Navegacion
 import { useNavigate } from 'react-router-dom';
 
-function NavbarIndexComponent() {
+function NavbarIndexComponent({text,url}) {
 
   const navigate = useNavigate();
 
@@ -20,19 +19,10 @@ function NavbarIndexComponent() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
+              notepad
             </Typography>
-            <Button onClick={ ()=> navigate('/home') } color="inherit">Iniciar sesion</Button>
+            <Button onClick={ ()=> navigate(`/${url}`) } color="inherit">{text}</Button>
           </Toolbar>
         </AppBar>
       </Box>

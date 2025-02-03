@@ -3,10 +3,10 @@
     "urlDev":"http://localhost:5001/api/v1/",
     "urlProd":"https://to-do-list-back-onnu.onrender.com/api/v1/",
     "urls": {
-        "login":"auth/login/",
+        "login":"login/",
         "user":"users/",
         "role":"role/",
-        "status":"status/",
+        "statusUser":"statusUser/",
         "brand":"brand/",
         "statusTask":"statusTask/",
         "statusItem":"statusItem/",
