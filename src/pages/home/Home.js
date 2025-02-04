@@ -8,6 +8,7 @@ import StatusTask from '../status-task/list/ListStatusTask';
 import StatusItem from '../status-item/list/ListStatusItem';
 import Task from '../task/list/ListTask';
 import Item from '../item/list/ListTask';
+import Profile from '../profile/Profile';
 
 //Context for views
 import { ViewsContext } from '../../context/ViewsContext';
@@ -29,6 +30,8 @@ function Home() {
             <Task /> :
           views.item === true ?
             <Item /> :
+          views.profile === true ?
+            <Profile /> :
             <></>
         }
       </NavbarHomeComponent>

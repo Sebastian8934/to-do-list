@@ -26,9 +26,9 @@ function ListStatusItem() {
   const dispatch = useDispatch();
 
   const [view, setView] = useState({
-      list:true,
-      create:false,
-      update:false
+    list:true,
+    create:false,
+    update:false
   });
 
   const columns = [

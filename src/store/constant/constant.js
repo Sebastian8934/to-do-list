@@ -9,3 +9,6 @@ export const GET_ITEM_ID = "GET ITEM ID";
 
 export const GET_TASK_ALL = "GET TASK ALL";
 export const GET_TASK_ID = "GET TASK ID";
+
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";

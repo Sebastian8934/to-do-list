@@ -27,6 +27,15 @@ import { deepOrange } from '@mui/material/colors';
 //Context for views
 import { ViewsContext } from '../../../context/ViewsContext';
 
+//Navegacion
+import { useNavigate } from 'react-router-dom';
+
+//Redux 
+import { useDispatch } from 'react-redux';
+
+//Action
+import { logout } from '../../../store/action/loginAction'; 
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -87,6 +96,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 function NavbarHomeComponent({ children }) {
 
   const theme = useTheme();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
   //Manejo de las vistas
@@ -111,6 +122,19 @@ function NavbarHomeComponent({ children }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  //Cierra la sesión
+  const logouts = () => {
+    setAnchorEl(null);
+    dispatch(logout());
+    navigate("/login");
+  }
+
+  //Enviar al perfil
+  const handleProfile = () => {
+    setAnchorEl(null);
+    setViews({profile:true});    
+  }
 
   //Maneja que componentes se muestran
   const handleClick = (e) => {
@@ -139,7 +163,7 @@ function NavbarHomeComponent({ children }) {
                 edge="start"
                 sx={[
                 {
-                    mr: 2,
+                  mr: 2,
                 },
                 open && { display: 'none' },
                 ]}
@@ -147,9 +171,8 @@ function NavbarHomeComponent({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Persistent drawer
+            Nombre de usuario
           </Typography>
-
            <Box>
               <IconButton
                 size="large"
@@ -180,11 +203,11 @@ function NavbarHomeComponent({ children }) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Configuraciones</MenuItem>
+                <MenuItem onClick={handleProfile}>Perfil</MenuItem>
+                <MenuItem onClick={logouts}>Cerrar sesión</MenuItem>
+                {/* <MenuItem onClick={handleClose}>Configuraciones</MenuItem> */}
               </Menu>
           </Box>
-
         </Toolbar>
       </AppBar>
       <Drawer
