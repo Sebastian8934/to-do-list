@@ -60,11 +60,10 @@ export const updateStatusTaskService = async (body) => {
     }
 };
 
-export const deleteStatusTaskService = (id) => async (dispatch, getState) => {
+export const deleteStatusTaskService = async (id) => {
     try {
-        const res = await axios.delete(config.urlProd+config.role.urlRole + id);
-        let result = res.data;
-        return result;
+        const res = await axios.delete(config.urlProd + config.urls.statusTask + id);
+        return res.data;
     } catch (error) {
         console.log(error);
         return error;

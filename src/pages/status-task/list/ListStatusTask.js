@@ -43,7 +43,7 @@ function ListTask() {
         <Button variant="contained" color="primary" size="small" style = { { marginRight: 10 } } onClick = { () => handleEdit(params.row) }>Editar</Button>
         
         {/* Botón de Eliminar */}
-        <Button variant="contained" color="secondary" size="small" onClick = { () => handleDelete(params.row) } > Eliminar </Button>
+        <Button variant="contained" color="secondary" size="small" onClick = { () => handleDelete(params.row._id) } > Eliminar </Button>
       </div>
     ),
   },
