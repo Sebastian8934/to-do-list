@@ -31,7 +31,7 @@ import { ViewsContext } from '../../../context/ViewsContext';
 import { useNavigate } from 'react-router-dom';
 
 //Redux 
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 
 //Action
 import { logout } from '../../../store/action/loginAction'; 
@@ -96,9 +96,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 function NavbarHomeComponent({ children }) {
 
   const theme = useTheme();
+  const infoUser = useSelector((state) => state.login);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
 
   //Manejo de las vistas
   const { setViews } = useContext(ViewsContext);
@@ -171,7 +172,7 @@ function NavbarHomeComponent({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Nombre de usuario
+            {infoUser.data.user}
           </Typography>
            <Box>
               <IconButton

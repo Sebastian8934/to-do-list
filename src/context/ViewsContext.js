@@ -4,7 +4,7 @@ export const ViewsContext = createContext();
 
 export function ViewsProvider({ children }) {
 
-   const [views, setViews] = useState({});
+  const [views, setViews] = useState({});
 
   return (
     <>
