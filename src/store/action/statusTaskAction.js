@@ -4,14 +4,13 @@ import { GET_STATUS_TASK_ALL,GET_STATUS_TASK_ID } from '../constant/constant';
 
 export const getStatusTaskAIdService = (id) => async (dispatch, getState) => {
     try {
-        const res = await axios.get(config.url+config.urls.statusTask,id);
+        const res = await axios.get(config.url + config.urls.statusTask, id);
         console.log(res);
         dispatch({
             type: GET_STATUS_TASK_ID,
             payload: res.data
         });
     } catch (error) {
-        // console.log(error);
         dispatch({
             type: GET_STATUS_TASK_ID,
             payload: { 
@@ -25,13 +24,12 @@ export const getStatusTaskAIdService = (id) => async (dispatch, getState) => {
 
 export const getStatusTaskAllService = () => async (dispatch, getState) => {
     try {
-        const res = await axios.get(config.url+config.urls.statusTask);  
+        const res = await axios.get(config.url + config.urls.statusTask);  
         dispatch({
             type: GET_STATUS_TASK_ALL,
             payload: res.data
         });
     } catch (error) {
-        // console.log(error);
         dispatch({
             type: GET_STATUS_TASK_ALL,
             payload: { 
@@ -46,23 +44,17 @@ export const getStatusTaskAllService = () => async (dispatch, getState) => {
 export const createStatusTaskService = async (body) => {
     try {
         const res = await axios.post(config.urlProd + config.urls.statusTask, body);
-        let result = res.data;
-
-        console.log(result);
-
-        return result;
+        return res.data;
     } catch (error) {
         console.log(error);
         return error;
     }
 };
 
-export const updateStatusTaskService = (body) => async (dispatch, getState) => {
+export const updateStatusTaskService = async (body) => {
     try {
-        const res = await axios.put(config.urlProd+config.role.urlRole + body.id,body);
-        // console.log(res);
-        let result = res.data;
-        return result; 
+        const res = await axios.put(config.urlProd + config.urls.statusTask + body.id, body);
+        return res.data; 
     } catch (error) {
         console.log(error);
     }
@@ -71,7 +63,6 @@ export const updateStatusTaskService = (body) => async (dispatch, getState) => {
 export const deleteStatusTaskService = (id) => async (dispatch, getState) => {
     try {
         const res = await axios.delete(config.urlProd+config.role.urlRole + id);
-        // console.log(res);
         let result = res.data;
         return result;
     } catch (error) {

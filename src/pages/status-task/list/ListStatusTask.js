@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 //View
 import Create from '../create/CreateStatusTask';
-// import Edit from '../edit/EditStatusItem';
+import Edit from '../edit/EditStatusTask';
 
 //Components
 import TableComponent from '../../../components/Table/TableComponent';
@@ -103,7 +103,7 @@ function ListTask() {
         </>
       )}
       { view.create === true && <Create setView={ setView } /> }
-      {/* { view.update === true && <Edit setView={ setView } infoUpdate={ infoUpdate } /> } */}
+      { view.update === true && <Edit setView={ setView } infoUpdate={ infoUpdate } /> }
     </>
   )
 }
