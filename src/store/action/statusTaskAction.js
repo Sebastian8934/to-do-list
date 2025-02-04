@@ -43,11 +43,13 @@ export const getStatusTaskAllService = () => async (dispatch, getState) => {
     }
 };
 
-export const createStatusTaskService = (body) => async (dispatch, getState) => {
+export const createStatusTaskService = async (body) => {
     try {
-        const res = await axios.post(config.urlProd+config.role.urlRole,body);
-        // console.log(res);
+        const res = await axios.post(config.urlProd + config.urls.statusTask, body);
         let result = res.data;
+
+        console.log(result);
+
         return result;
     } catch (error) {
         console.log(error);

@@ -4,7 +4,7 @@ import React,{ useContext } from 'react';
 import NavbarHomeComponent from '../../components/Navbar/NavbarHomeComponent/NavbarHomeComponent';
 
 //Views 
-import StatusTask from '../status-task/list/ListTask';
+import StatusTask from '../status-task/list/ListStatusTask';
 import StatusItem from '../status-item/list/ListStatusItem';
 import Task from '../task/list/ListTask';
 import Item from '../item/list/ListTask';
