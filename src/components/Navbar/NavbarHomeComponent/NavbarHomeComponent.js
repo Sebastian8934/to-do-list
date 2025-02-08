@@ -134,21 +134,36 @@ function NavbarHomeComponent({ children }) {
   //Enviar al perfil
   const handleProfile = () => {
     setAnchorEl(null);
-    setViews({profile:true});    
+    setViews({ profile:true });
   }
 
   //Maneja que componentes se muestran
-  const handleClick = (e) => {
+  const handleClick = ({ target }) => {
     let viewsChange;
-    if(e.target.innerText === "Lista de tareas"){
-      viewsChange = { task:true };
-    } else if(e.target.innerText === "Lista de items"){
-      viewsChange = { item:true };
-    } else if(e.target.innerText === "Estatus de tareas"){
-      viewsChange = { statusTask:true };
-    } else if(e.target.innerText === "Estatus de items"){
-      viewsChange = { statusItem:true };
+
+    switch (target.innerText) {
+      case "Lista de tareas":
+        viewsChange = { task:true };
+        break;
+      case "Lista de items":
+        viewsChange = { item:true };
+        break;
+      case "Estatus de tareas":
+        viewsChange = { statusTask:true };
+        break;
+      case "Estatus de items":
+        viewsChange = { statusItem:true };
+        break;
+      case "Roles":
+        viewsChange = { role:true };
+        break;
+      case "Estatus de usuarios":
+        viewsChange = { statusUser:true };
+        break;
+      default:
+        break;
     }
+
     setViews(viewsChange);
   }
 
@@ -231,7 +246,7 @@ function NavbarHomeComponent({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Lista de tareas','Lista de items','Estatus de tareas','Estatus de items'].map((text, index) => (
+          {['Lista de tareas','Lista de items','Estatus de tareas','Estatus de items', 'Roles', 'Estatus de usuarios'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={handleClick}>
                 <ListItemIcon>

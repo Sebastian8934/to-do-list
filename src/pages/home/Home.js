@@ -6,6 +6,8 @@ import NavbarHomeComponent from '../../components/Navbar/NavbarHomeComponent/Nav
 //Views 
 import StatusTask from '../status-task/list/ListStatusTask';
 import StatusItem from '../status-item/list/ListStatusItem';
+import StatusUser from '../status-user/list/ListStatusUser';
+import Roles from '../roles/list/ListRoles';
 import Task from '../task/list/ListTask';
 import Item from '../item/list/ListTask';
 import Profile from '../profile/Profile';
@@ -30,6 +32,10 @@ function Home() {
             <Task /> :
           views.item === true ?
             <Item /> :
+          views.role === true ?
+            <Roles /> :
+          views.statusUser === true ?
+            <StatusUser /> :
           views.profile === true ?
             <Profile /> :
             <></>
