@@ -90,7 +90,7 @@ function ListTask() {
 
           allowOutsideClick:false
       });
-    }
+  }
 
   return (
     <>
